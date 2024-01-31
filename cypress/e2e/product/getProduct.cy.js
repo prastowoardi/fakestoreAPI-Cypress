@@ -54,7 +54,7 @@ describe ('Get All product', () => {
     }) 
 
 
-    function generateRandomStringFromArray(array) {
+    function generateCategory(array) {
         if (!Array.isArray(array) || array.length === 0) {
             throw new Error('Invalid input: Please provide a non-empty array.')
         }
@@ -66,7 +66,7 @@ describe ('Get All product', () => {
     it('Get products in a specific category', () => {
     
         const categories = ["electronics","jewelery","men's clothing","women's  clothing", "jacket"]
-        const randomCategories = generateRandomStringFromArray(categories)
+        const randomCategories = generateCategory(categories)
 
         cy.request({
             method: 'GET',
