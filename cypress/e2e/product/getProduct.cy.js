@@ -37,19 +37,57 @@ describe ('Get All product', () => {
             },
             failOnStatusCode: false
         }).then((response) => {
-            const product = response.body;
-    
+            const product = response.body
+
             if (product && Object.prototype.hasOwnProperty.call(product, 'title')) {
-                cy.log(`Product Name: ${product.title}`);
-                cy.log(`Price: ${product.price}`);
-                cy.log(`Category: ${product.category}`);    
+                cy.log(`Product Name: ${product.title}`)
+                cy.log(`Price: ${product.price}`)
+                cy.log(`Category: ${product.category}`)    
                 // Additional check for rating property
                 if (product.rating) {
-                    cy.log(`Rating: ${product.rating.rate} (Count: ${product.rating.count})`);
+                    cy.log(`Rating: ${product.rating.rate} (Count: ${product.rating.count})`)
                 }
             } else {
-                throw new Error('Product data not found');
+                throw new Error('Product data not found')
             }
-        });
-    });    
+        })
+    }) 
+
+
+    function generateRandomStringFromArray(array) {
+        if (!Array.isArray(array) || array.length === 0) {
+            throw new Error('Invalid input: Please provide a non-empty array.')
+        }
+    
+        const randomIndex = Math.floor(Math.random() * array.length)
+        return array[randomIndex]
+    }
+    
+    const categories = ["electronics","jewelery","men's clothing","women's  clothing", "jacket"]
+    const randomCategories = generateRandomStringFromArray(categories)
+    
+    it.only('Get products in a specific category', () => {
+        cy.request({
+            method: 'GET',
+            url: `/products/category/${randomCategories}`,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            failOnStatusCode: false
+        }).then((response) => {
+            const products = response.body
+
+            if (products && products.length > 0) {
+                cy.log('Products found:', products)
+                products.forEach((productInCategory) => {
+                    cy.log(`Poduct Name : ${productInCategory.title}`)
+
+                })
+                console.log('products:', products)
+            } else {
+                cy.log('Data not found:', JSON.stringify(products))
+                throw new Error('Product data not found')
+            }
+        })
+    })        
 })
