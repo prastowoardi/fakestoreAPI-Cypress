@@ -70,17 +70,18 @@ describe ('Get All Carts', () => {
         const startDate = '2019-01-01'
         const endDate = '2020-12-31'
     
-        const randomStartDate = getRandomDate(startDate, endDate)
-        const randomEndDate = getRandomDate(randomStartDate, endDate)
+        const dateStart = getRandomDate(startDate, endDate)
+        const dateEnd = getRandomDate(dateStart, endDate)
     
-        if (new Date(randomEndDate) < new Date(randomStartDate)) {
+        if (new Date(dateEnd) < new Date(dateStart)) {
             cy.log('End date cannot be earlier than start date.')
             return
         }
 
+        cy.log(`Date range : ${dateStart} to ${dateEnd}`)
         cy.request({
             method: 'GET',
-            url: `/carts?startdate=${randomStartDate}&enddate=${randomEndDate}`,
+            url: `/carts?startdate=${dateStart}&enddate=${dateEnd}`,
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -89,7 +90,7 @@ describe ('Get All Carts', () => {
             const carts = response.body
     
             if (carts.length === 0) {
-                throw new Error(`No products found in cart for the specified date range: ${randomStartDate} to ${randomEndDate}`)
+                throw new Error(`No products found in cart for the specified date range: ${dateStart} to ${dateEnd}`)
             } else {
                 carts.forEach((cart) => {
                     cy.log(`User ID: ${cart.userId}`)
