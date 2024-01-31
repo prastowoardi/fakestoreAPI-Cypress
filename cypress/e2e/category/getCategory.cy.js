@@ -1,4 +1,4 @@
-describe ('Get All product', () => {
+describe ('Get All Category', () => {
     it ('Get All', () => {
         cy.request({
             method: 'GET',

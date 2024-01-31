@@ -63,10 +63,11 @@ describe ('Get All product', () => {
         return array[randomIndex]
     }
     
-    const categories = ["electronics","jewelery","men's clothing","women's  clothing", "jacket"]
-    const randomCategories = generateRandomStringFromArray(categories)
+    it('Get products in a specific category', () => {
     
-    it.only('Get products in a specific category', () => {
+        const categories = ["electronics","jewelery","men's clothing","women's  clothing", "jacket"]
+        const randomCategories = generateRandomStringFromArray(categories)
+
         cy.request({
             method: 'GET',
             url: `/products/category/${randomCategories}`,
