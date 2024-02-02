@@ -100,5 +100,32 @@ describe ('Get All Carts', () => {
                 console.log(response.body)
             }
         })
-    })                 
+    })
+    
+    it.only('Get user carts', () => {
+        cy.request({
+            method: 'GET',
+            url: `/carts/user/3`,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            failOnStatusCode: false
+        }).then((response) => {
+            const carts = response.body
+    
+            if (carts.length > 0) {
+                cy.log(`User ID: ${carts[0].userId}`);
+
+                carts.forEach((cart) => {
+                    cart.products.forEach((product) => {
+                        cy.log(`Product ID: ${product.productId}`)
+                        cy.log(`Quantity: ${product.quantity}`)
+                    })
+                })
+                console.log(carts)
+            } else {
+                cy.log('No carts found')
+            }
+        })
+    })
 })
