@@ -105,7 +105,7 @@ describe ('Get All Carts', () => {
     it.only('Get user carts', () => {
         cy.request({
             method: 'GET',
-            url: `/carts/user/3`,
+            url: `/carts/user/${id}`,
             headers: {
                 'Content-Type': 'application/json'
             },
