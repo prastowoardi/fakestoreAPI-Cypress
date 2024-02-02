@@ -1,1 +1,4 @@
 node_modules
+testReports
+screenshots
+cypress-mochawesome-reporter.log
