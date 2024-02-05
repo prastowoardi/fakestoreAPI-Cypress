@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('accessToken', () => {
+    cy.request({
+        method: 'POST',
+        url: '/auth/login',
+        body: {
+            username: "mor_2314",
+            password: "83r5^_"
+        },
+      }).then((loginResponse) => {
+        expect(loginResponse.status).to.eq(200)
+        expect(loginResponse.body).to.have.property('token')
+        const token = loginResponse.body.token
+        // cy.log("Token: " + token)
+      
+        // Simpan token dalam variabel untuk digunakan dalam permintaan berikutnya
+        Cypress.env('accessToken', token)
+        return cy.wrap(token)
+      })
+})
