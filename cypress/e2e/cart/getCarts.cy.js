@@ -1,3 +1,5 @@
+import { generateRandomId } from "../../support/randomValue"
+
 describe ('Get All Carts', () => {
     it ('Get All', () => {
         cy.request({
@@ -22,12 +24,8 @@ describe ('Get All Carts', () => {
             }
         })
     })
-
-    function generateRandomId() {
-        return Math.floor(Math.random() * 10) + 1
-    }
     
-    var id = generateRandomId()
+    const id = generateRandomId()
 
     it('Get One Cart', () => {
         cy.request({
@@ -102,7 +100,7 @@ describe ('Get All Carts', () => {
         })
     })
     
-    it.only('Get user carts', () => {
+    it('Get user carts', () => {
         cy.request({
             method: 'GET',
             url: `/carts/user/${id}`,

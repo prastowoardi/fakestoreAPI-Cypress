@@ -1,10 +1,6 @@
 import { faker } from '@faker-js/faker'
-
-function generateRandomId() {
-    return Math.floor(Math.random() * 10) + 1
-}
-
-var id = generateRandomId()
+import { generateRandomId } from "../../support/randomValue"
+const id = generateRandomId()
 
 function getRandomDate(startDate, endDate) {
     const startTimestamp = new Date(startDate).getTime()

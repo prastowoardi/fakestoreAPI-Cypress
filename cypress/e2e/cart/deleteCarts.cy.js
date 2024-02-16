@@ -1,11 +1,8 @@
-function generateRandomId() {
-    return Math.floor(Math.random() * 10) + 1
-}
-
-var id = generateRandomId()
+import { generateRandomId } from "../../support/randomValue"
 
 describe ('Delete Carts', () => {
     it ('Delete Carts', () => {
+        const id = generateRandomId()
         cy.request({
             method: 'DELETE',
             url: `/carts/${id}`,

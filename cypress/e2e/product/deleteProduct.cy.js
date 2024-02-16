@@ -1,8 +1,6 @@
-function generateRandomId() {
-    return Math.floor(Math.random() * 10) + 1
-}
+import { generateRandomId } from "../../support/randomValue"
 
-var id = generateRandomId()
+const id = generateRandomId()
 
 describe ('Delete Product', () => {
     it ('Delete Product', () => {

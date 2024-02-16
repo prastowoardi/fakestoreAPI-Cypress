@@ -1,10 +1,5 @@
 import { faker } from '@faker-js/faker'
-
-function generateRandomId() {
-    return Math.floor(Math.random() * 10) + 1
-}
-
-var id = generateRandomId()
+import { generateRandomId } from "../../support/randomValue"
 
 function getRandomDate(startDate, endDate) {
     const startTimestamp = new Date(startDate).getTime()
@@ -19,6 +14,7 @@ const date = getRandomDate(startDate, endDate)
 
 describe('Edit Cart', () => {
     it('Edit Cart', () => {
+        const id = generateRandomId()
         cy.request({
             method: 'POST',
             url: '/carts',

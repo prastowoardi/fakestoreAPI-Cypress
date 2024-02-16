@@ -1,10 +1,7 @@
 import { faker } from "@faker-js/faker"
+import { generateRandomId } from "../../support/randomValue"
 
-function generateRandomId() {
-    return Math.floor(Math.random() * 10) + 1
-}
-
-var id = generateRandomId()
+const id = generateRandomId()
 
 function generateCategory(array) {
     if (!Array.isArray(array) || array.length === 0) {

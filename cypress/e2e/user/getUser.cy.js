@@ -1,3 +1,5 @@
+import { generateRandomId } from "../../support/randomValue"
+
 describe ('Get Users', () => {
     it ('Get All', () => {
         cy.request({
@@ -22,12 +24,8 @@ describe ('Get Users', () => {
             }
         })
     })
-
-    function generateRandomId() {
-        return Math.floor(Math.random() * 10) + 1
-    }
     
-    var id = generateRandomId()
+    const id = generateRandomId()
 
     it('Get One User', () => {
         cy.request({
