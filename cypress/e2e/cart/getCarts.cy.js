@@ -1,4 +1,5 @@
 import { generateRandomId } from "../../support/randomValue"
+import { getRandomDate } from "../../support/randomValue"
 
 describe ('Get All Carts', () => {
     it ('Get All', () => {
@@ -55,14 +56,6 @@ describe ('Get All Carts', () => {
             }
         })
     })
-
-
-    function getRandomDate(startDate, endDate) {
-        const startTimestamp = new Date(startDate).getTime()
-        const endTimestamp = new Date(endDate).getTime()
-        const randomTimestamp = Math.floor(Math.random() * (endTimestamp - startTimestamp + 1) + startTimestamp)
-        return new Date(randomTimestamp).toISOString().split('T')[0]
-    }
     
     it('Get carts with a random date range', () => {
         const startDate = '2019-01-01'
