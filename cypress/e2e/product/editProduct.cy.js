@@ -1,16 +1,8 @@
 import { faker } from "@faker-js/faker"
 import { generateRandomId } from "../../support/randomValue"
+import { generateCategory } from "../../support/randomValue"
 
 const id = generateRandomId()
-
-function generateCategory(array) {
-    if (!Array.isArray(array) || array.length === 0) {
-        throw new Error('Invalid input: Please provide a non-empty array.')
-    }
-
-    const randomIndex = Math.floor(Math.random() * array.length)
-    return array[randomIndex]
-}
 
 describe ('Delete Product', () => {
     it ('Delete Product', () => {

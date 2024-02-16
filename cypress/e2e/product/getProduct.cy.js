@@ -1,4 +1,5 @@
 import { generateRandomId } from "../../support/randomValue"
+import { generateCategory } from "../../support/randomValue"
 
 const id = generateRandomId()
 describe ('Get All product', () => {
@@ -50,16 +51,6 @@ describe ('Get All product', () => {
         })
     }) 
 
-
-    function generateCategory(array) {
-        if (!Array.isArray(array) || array.length === 0) {
-            throw new Error('Invalid input: Please provide a non-empty array.')
-        }
-    
-        const randomIndex = Math.floor(Math.random() * array.length)
-        return array[randomIndex]
-    }
-    
     it('Get products in a specific category', () => {
     
         const categories = ["electronics","jewelery","men's clothing","women's  clothing", "jacket"]

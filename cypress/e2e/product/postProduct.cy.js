@@ -1,13 +1,5 @@
 import { faker } from '@faker-js/faker'
-
-function generateCategory(array) {
-    if (!Array.isArray(array) || array.length === 0) {
-        throw new Error('Invalid input: Please provide a non-empty array.')
-    }
-
-    const randomIndex = Math.floor(Math.random() * array.length)
-    return array[randomIndex]
-}
+import { generateCategory } from "../../support/randomValue"
 
 describe('Create menu', () => {
     it('Create Menu', () => {
