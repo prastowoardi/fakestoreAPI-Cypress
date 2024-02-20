@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
-describe('Create menu', () => {
-    it('Create Menu', () => {
+describe('Create User', () => {
+    it('Create User', () => {
         cy.request({
             method: 'POST',
             url: '/products',
