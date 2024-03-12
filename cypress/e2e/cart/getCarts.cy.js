@@ -1,5 +1,4 @@
-import { generateRandomId } from "../../support/randomValue"
-import { getRandomDate } from "../../support/randomValue"
+import { generateRandomId, getRandomDate } from "../../support/randomValue"
 
 describe ('Get All Carts', () => {
     it ('Get All', () => {

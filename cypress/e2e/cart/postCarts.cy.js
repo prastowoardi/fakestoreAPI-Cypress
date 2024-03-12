@@ -1,6 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { generateRandomId } from "../../support/randomValue"
-import { getRandomDate } from "../../support/randomValue"
+import { generateRandomId, getRandomDate } from "../../support/randomValue"
 
 const id = generateRandomId()
 const startDate = '2019-01-01'

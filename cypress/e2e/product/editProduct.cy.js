@@ -1,6 +1,5 @@
 import { faker } from "@faker-js/faker"
-import { generateRandomId } from "../../support/randomValue"
-import { generateCategory } from "../../support/randomValue"
+import { generateRandomId,generateCategory } from "../../support/randomValue"
 
 const id = generateRandomId()
 
